@@ -1,0 +1,21 @@
+POST http://localhost:5800/api/user/register
+Content-Type: application/json
+
+{
+    "name": "Emily Johnson",
+    "email": "emily.johnson@example.com",
+    "password": "testPassword123",
+    "confirmPassword": "testPa0ssword123"
+}
+
+###
+POST http://localhost:5800/api/user/login
+Content-Type: application/json
+
+{
+    "email": "emily.johnson@example.com",
+    "password": "testPassword123"
+}
+
+
+

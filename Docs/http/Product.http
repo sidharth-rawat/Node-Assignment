@@ -1,0 +1,25 @@
+###
+POST http://localhost:5800/api/product
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTc3ZjRmMGE3ZWY5NDVkYjhmMTVhOSIsIm5hbWUiOiJFbWlseSBKb2huc29uIiwiZW1haWwiOiJlbWlseS5qb2huc29uQGV4YW1wbGUuY29tIiwiaWF0IjoxNzEyODE5NzY1LCJleHAiOjE3MTU0MTE3NjV9.B1dm7U-iNkfM5wuWR4_w7AEr3bb268ITiiLQnL-6CZg
+
+{
+  "products": [
+    {
+      "name": "Product 010",
+      "qty": 100,
+      "rate": 500
+    },
+    {
+      "name": "Product 20",
+      "qty": 3,
+      "rate": 70
+    }
+  ]
+}
+
+
+###
+GET http://localhost:5800/api/product
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MTc3ZjRmMGE3ZWY5NDVkYjhmMTVhOSIsIm5hbWUiOiJFbWlseSBKb2huc29uIiwiZW1haWwiOiJlbWlseS5qb2huc29uQGV4YW1wbGUuY29tIiwiaWF0IjoxNzEyODE5NzY1LCJleHAiOjE3MTU0MTE3NjV9.B1dm7U-iNkfM5wuWR4_w7AEr3bb268ITiiLQnL-6CZg
