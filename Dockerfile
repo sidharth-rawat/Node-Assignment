@@ -13,6 +13,10 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 
+# Create logs directory with appropriate permissions
+RUN mkdir -p /usr/src/app/logs && \
+    chown -R node:node /usr/src/app/logs
+
 # Stage 2: Set permissions stage
 FROM build AS setpermissions
 
