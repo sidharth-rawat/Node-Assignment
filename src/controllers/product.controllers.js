@@ -45,6 +45,7 @@ export const createProduct = async (req, res) =>{
 
 
     } catch (error) {
+        console.log(error);
         logger.error(`Error in Login: ${error}`);
         // Return internal server error status with error message
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(httpFormatter({}, "Something went wrong!", false));
@@ -73,6 +74,7 @@ const formattedData =data.map(item => ({
         return res.status(StatusCodes.OK).json(httpFormatter(formattedData,"Data found successfully!", true));
 
     } catch (error) {
+        console.log(error);
         logger.error(`Error in Login: ${error}`);
         // Return internal server error status with error message
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(httpFormatter({}, "Something went wrong!", false));
