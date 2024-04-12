@@ -5,6 +5,14 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 
 WORKDIR /usr/src/app
 
+# Create the upload directory
+RUN mkdir -p ./src/upload/PDF
+
+# Change ownership of the upload directory to allow write permissions
+RUN chown -R node:node ./src/upload
+
+USER node
+
 COPY package*.json ./
 RUN npm ci
 COPY . .
