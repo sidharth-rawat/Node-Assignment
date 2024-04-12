@@ -13,9 +13,6 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 
-# Stage 2: Create logs directory
-RUN mkdir -p /usr/logs
-
 # Stage 3: Set permissions stage
 FROM build AS setpermissions
 
