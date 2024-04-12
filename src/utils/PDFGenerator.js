@@ -58,6 +58,10 @@ const generateHTMLTable = (products) => {
 export const generatePDF = async (products) => {
   // const browser = await puppeteer.launch({        executablePath: '/path/to/chrome',});
 // const todayDate = new Date()
+const browser = await puppeteer.launch({ // Launch puppeteer browser instance
+  executablePath: "/usr/bin/chromium-browser", // Specify executable path for headless browser
+  args: ["--no-sandbox"], // Specify additional arguments for browser
+});
 // Create a new Date object
 const currentDate = new Date();
 
@@ -69,10 +73,7 @@ const year = currentDate.getFullYear();
 // Format the date as desired (in mm/dd/yyyy format)
 const formattedTodayDate = month + '/' + day + '/' + year;
   const page = await browser.newPage();
-  const browser = await puppeteer.launch({ // Launch puppeteer browser instance
-    executablePath: "/usr/bin/chromium-browser", // Specify executable path for headless browser
-    args: ["--no-sandbox"], // Specify additional arguments for browser
-  });
+  
   await page.setContent(`
     <body>
       <section>
