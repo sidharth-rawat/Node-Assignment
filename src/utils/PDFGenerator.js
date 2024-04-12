@@ -58,8 +58,12 @@ const generateHTMLTable = (products) => {
 export const generatePDF = async (products) => {
   // const browser = await puppeteer.launch({        executablePath: '/path/to/chrome',});
 // const todayDate = new Date()
+// const browser = await puppeteer.launch({ // Launch puppeteer browser instance
+//   executablePath: "/usr/bin/chromium-browser", // Specify executable path for headless browser
+//   args: ["--no-sandbox"], // Specify additional arguments for browser
+// });
 const browser = await puppeteer.launch({ // Launch puppeteer browser instance
-  executablePath: "/usr/bin/chromium-browser", // Specify executable path for headless browser
+  executablePath: puppeteer.executablePath(), // Specify executable path for headless browser
   args: ["--no-sandbox"], // Specify additional arguments for browser
 });
 // Create a new Date object
