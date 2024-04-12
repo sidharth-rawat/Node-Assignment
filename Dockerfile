@@ -9,6 +9,9 @@ WORKDIR /usr/src/app
 # Create the upload directory
 RUN mkdir -p ./src/upload/PDF
 
+# Create the logs directory
+RUN mkdir -p ./logs
+
 COPY package*.json ./
 RUN npm ci
 COPY . .
@@ -17,7 +20,7 @@ COPY . .
 FROM build AS setpermissions
 
 USER root
-RUN chown -R node:node ./src/upload
+RUN chown -R node:node ./src/upload ./logs
 
 USER node
 
