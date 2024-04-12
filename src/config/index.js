@@ -11,7 +11,8 @@ const {
   COMMON_JWT_KEY,
   LOGIN,
   FILE_UPLOAD_PATH,
-  URL
+  URL,
+  PUPPETEER_EXECUTABLE_PATH
 } = process.env
 
 const Config = {
@@ -23,7 +24,8 @@ const Config = {
   COMMON_JWT_KEY,
   LOGIN,
   FILE_UPLOAD_PATH,
-  URL
+  URL,
+  PUPPETEER_EXECUTABLE_PATH
 }
 
 export default Config

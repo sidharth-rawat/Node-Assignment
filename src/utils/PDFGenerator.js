@@ -5,7 +5,7 @@ import path from 'path';
 import Config from '../config/index.js';
 import moment from 'moment';
 
-const { FILE_UPLOAD_PATH } = Config;
+const { FILE_UPLOAD_PATH,PUPPETEER_EXECUTABLE_PATH,NODE_ENV } = Config;
 
 function ensureDirectoryExists(directory) {
   if (!fs.existsSync(directory)) {
@@ -62,9 +62,17 @@ export const generatePDF = async (products) => {
 //   executablePath: "/usr/bin/chromium-browser", // Specify executable path for headless browser
 //   args: ["--no-sandbox"], // Specify additional arguments for browser
 // });
-const browser = await puppeteer.launch({ // Launch puppeteer browser instance
-  executablePath: puppeteer.executablePath(), // Specify executable path for headless browser
-  args: ["--no-sandbox"], // Specify additional arguments for browser
+const browser = await puppeteer.launch({
+  args: [
+    "--disable-setuid-sandbox",
+    "--no-sandbox",
+    "--single-process",
+    "--no-zygote",
+  ],
+  executablePath:
+    NODE_ENV === "production"
+      ? PUPPETEER_EXECUTABLE_PATH
+      : puppeteer.executablePath(),
 });
 // Create a new Date object
 const currentDate = new Date();
